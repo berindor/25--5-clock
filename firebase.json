@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "berindor-25--5-clock",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
