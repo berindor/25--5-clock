@@ -11,3 +11,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#pomodoro-icon {
+  position: absolute;
+  bottom: 0;
+}
