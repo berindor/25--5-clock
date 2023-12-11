@@ -1,5 +1,11 @@
 import React from 'react';
 import './App.css';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import StopIcon from '@mui/icons-material/Stop';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
+import NorthIcon from '@mui/icons-material/North';
+import SouthIcon from '@mui/icons-material/South';
 
 function formatTime(millisec) {
   let min = Math.floor(millisec / (60 * 1000));
@@ -95,42 +101,46 @@ class App extends React.Component {
   render() {
     return (
       <div id="clock">
+        <h1 id="title">Pomodoro timer</h1>
         <div id="session-setting">
           <p id="session-label">Session Length</p>
           <button id="session-decrement" onClick={() => this.changeTimeLength('Session', -1)}>
-            down
+            <SouthIcon />
           </button>
           <div id="session-length-wrapper">
             <span id="session-length">{this.state.sessionLength}</span> min
           </div>
           <button id="session-increment" onClick={() => this.changeTimeLength('Session', 1)}>
-            up
+            <NorthIcon />
           </button>
         </div>
         <div id="break-setting">
           <p id="break-label">Break Length</p>
           <button id="break-decrement" onClick={() => this.changeTimeLength('Break', -1)}>
-            down
+            <SouthIcon />
           </button>
           <div id="break-length-wrapper">
             <span id="break-length">{this.state.breakLength}</span> min
           </div>
           <button id="break-increment" onClick={() => this.changeTimeLength('Break', 1)}>
-            up
+            <NorthIcon />
           </button>
         </div>
         <div id="timer">
           <p id="timer-label">{this.state.timerLabel}</p>
           <div id="time-left">{formatTime(this.state.timeLeft)}</div>
-          <button id="start_stop" onClick={this.toggleCountdown}>
-            start/stop
-          </button>
-          <button id="stop" onClick={this.handleStop}>
-            stop
-          </button>
-          <button id="reset" onClick={this.handleReset}>
-            reset
-          </button>
+          <div id="timer-buttons">
+            <button id="start_stop" onClick={this.toggleCountdown}>
+              <PlayArrowIcon />
+              <PauseIcon />
+            </button>
+            <button id="stop" onClick={this.handleStop}>
+              <StopIcon />
+            </button>
+            <button id="reset" onClick={this.handleReset}>
+              <ChangeCircleIcon />
+            </button>
+          </div>
           <audio id="beep" src="/birds-singing.wav"></audio>
         </div>
       </div>
